@@ -1,0 +1,22 @@
+.workspace-background-control>header h3 {margin:0;font-size:18px;line-height:1.3}
+.workspace-background-control>header p,.workspace-background-hint {color:var(--text-secondary);font-size:12px;line-height:1.5;margin:6px 0 12px;max-width:90ch}
+.workspace-background-choices {display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:12px}
+.settings-studio .workspace-background-choices>button {display:grid;gap:6px;align-content:start;min-width:0;padding:8px;text-align:start;background:var(--workspace-bg);color:var(--text-primary);border:1px solid var(--workspace-edge)}
+.workspace-background-preview {display:block;height:80px;border-radius:6px;background:var(--workspace-art,var(--workspace-bg));border:1px solid var(--workspace-edge)}
+.workspace-background-choices strong {font-size:13px}
+.workspace-background-choices small {font-size:11px;color:var(--text-secondary);line-height:1.4}
+.settings-studio .workspace-background-choices>button[aria-pressed=true],.settings-studio .workspace-background-segments>button[aria-pressed=true] {border-color:var(--workspace-accent);background:var(--provider-row-bg-selected);box-shadow:inset 0 0 0 1px var(--workspace-accent)}
+.workspace-background-options {display:flex;flex-wrap:wrap;gap:12px 32px;margin-block:16px 12px}
+.workspace-background-options fieldset {border:0;padding:0;margin:0;min-width:0}
+.workspace-background-options legend {font-size:12px;font-weight:650;padding:0;margin-bottom:8px}
+.workspace-background-segments {display:flex;flex-wrap:wrap;gap:6px}
+.settings-studio .workspace-background-segments>button {background:var(--workspace-bg);color:var(--text-primary);border-color:var(--workspace-edge)}
+.workspace-background-control button:focus-visible {outline:2px solid var(--workspace-accent);outline-offset:3px}
+.workspace-background-library-toolbar {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.workspace-background-choices {max-height:440px;overflow:auto;padding:4px;scrollbar-gutter:stable}
+.workspace-background-custom {display:grid;align-content:start;gap:4px;min-width:0;border:1px solid var(--workspace-edge);border-radius:10px;padding:6px}
+.workspace-background-custom>button:first-child {display:grid;text-align:start;gap:6px;padding:0;background:transparent;border:0;min-width:0}
+.workspace-background-custom strong {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.workspace-background-custom img {width:100%;object-fit:cover;box-sizing:border-box}
+.workspace-background-custom:has([aria-pressed=true]) {border-color:var(--workspace-accent)}
+.settings-studio .workspace-background-delete {font-size:10px;min-height:26px;padding:4px}

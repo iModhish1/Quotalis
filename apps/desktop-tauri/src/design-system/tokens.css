@@ -1,0 +1,196 @@
+/*
+ * QuotaArc Design System V2 — tokens.
+ *
+ * V2 language: EDGE OBJECT geometry + ARC INSTRUMENT density + selective
+ * LIQUID GLASS (expanded surfaces only). Compact always-visible surfaces use
+ * graphite (zero blur cost); expanded states may use glass.
+ *
+ * Layers:
+ *   --qa-*      primitives (never consumed directly by components)
+ *   --qa-ref-*  semantic references (components consume these)
+ */
+
+:root,
+[data-qa-theme="dark"] {
+  color-scheme: dark;
+
+  /* ── Primitives: palette ─────────────────────────────────────────── */
+  --qa-grey-0: #f6f8fb;
+  --qa-grey-1: #c9d2e0;
+  --qa-grey-2: #97a3b6;
+  --qa-grey-3: #67748a;
+  --qa-grey-4: #3d4759;
+  --qa-grey-5: #2a3342;
+  --qa-grey-6: #1d2532;
+  --qa-grey-7: #141b26;
+  --qa-grey-8: #0e141d;
+  --qa-grey-9: #090e15;
+
+  /* Premium black tonal system (never #000/#111) */
+  --qa-graphite-0: #05070b; /* deepest / backdrop */
+  --qa-graphite-1: #0b0e14; /* surface */
+  --qa-graphite-2: #11151d; /* elevated surface */
+  --qa-graphite-3: #171c26; /* hover surface */
+  --qa-graphite-4: #1e2430; /* active surface */
+
+  --qa-accent: #2dd4bf;
+  --qa-accent-2: #6366f1;
+  --qa-accent-soft: rgba(45, 212, 191, 0.16);
+
+  /* Status ramp */
+  --qa-status-healthy: #4ade80;
+  --qa-status-moderate: #fbbf24;
+  --qa-status-high: #fb923c;
+  --qa-status-critical: #f87171;
+  --qa-status-unknown: #97a3b6;
+  --qa-status-offline: #67748a;
+  --qa-status-refreshing: #60a5fa;
+
+  /* Provider accents (used ONLY for arcs/glow/icon accents) */
+  --qa-provider-claude: #d97757;
+  --qa-provider-codex: #2dd4bf;
+  --qa-provider-copilot: #60a5fa;
+  --qa-provider-opencode: #818cf8;
+  --qa-provider-gemini: #fbbf24;
+  --qa-provider-openrouter: #8b8bf7;
+
+  /* ── Alpha inks ──────────────────────────────────────────────────── */
+  --qa-ink-1: rgba(238, 242, 247, 0.96);
+  --qa-ink-2: rgba(238, 242, 247, 0.68);
+  --qa-ink-3: rgba(238, 242, 247, 0.44);
+  --qa-ink-4: rgba(238, 242, 247, 0.28);
+
+  /* ── Materials ───────────────────────────────────────────────────── */
+  --qa-material-graphite: linear-gradient(180deg, var(--qa-graphite-2), var(--qa-graphite-1));
+  --qa-material-glass: rgba(20, 26, 36, 0.78);
+  --qa-material-glass-strong: rgba(14, 19, 27, 0.9);
+  --qa-material-solid: var(--qa-graphite-1);
+  --qa-material-raised: var(--qa-graphite-3);
+  --qa-track: rgba(255, 255, 255, 0.07);
+  --qa-hairline: rgba(255, 255, 255, 0.06);
+  --qa-hairline-strong: rgba(255, 255, 255, 0.11);
+  --qa-edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* ── Elevation ───────────────────────────────────────────────────── */
+  --qa-shadow-1: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --qa-shadow-2: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --qa-shadow-3: 0 24px 70px rgba(0, 0, 0, 0.6);
+
+  /* ── Typography ──────────────────────────────────────────────────── */
+  --qa-font:
+    "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --qa-font-mono: "Cascadia Mono", Consolas, ui-monospace, monospace;
+
+  --qa-text-micro: 10px;   /* micro labels */
+  --qa-text-meta: 10.5px;  /* meta rows */
+  --qa-text-label: 11.5px; /* labels */
+  --qa-text-body: 12.5px;  /* body */
+  --qa-text-value: 12.5px; /* values (tabular) */
+  --qa-text-value-lg: 16px;
+  --qa-text-title: 15px;
+  --qa-text-heading: 19px;
+
+  --qa-weight-regular: 400;
+  --qa-weight-medium: 500;
+  --qa-weight-semibold: 600;
+
+  --qa-tracking-tight: -0.01em;
+  --qa-tracking-caps: 0.12em;
+
+  /* ── Geometry ────────────────────────────────────────────────────── */
+  --qa-space-1: 4px;
+  --qa-space-2: 8px;
+  --qa-space-3: 12px;
+  --qa-space-4: 16px;
+  --qa-space-5: 20px;
+  --qa-space-6: 24px;
+  --qa-space-8: 32px;
+
+  --qa-radius-micro: 6px;
+  --qa-radius-control: 10px;
+  --qa-radius-capsule: 999px;
+  --qa-radius-surface: 16px;
+  --qa-radius-surface-lg: 22px;
+
+  /* Edge-object geometry: radius on the FREE edge only */
+  --qa-edge-bottom-slab-radius: 18px 18px 0 0;
+  --qa-edge-top-notch-radius: 0 0 20px 20px;
+  --qa-edge-right-pod-radius: 999px 0 0 999px;
+  --qa-edge-left-pod-radius: 0 999px 999px 0;
+
+  /* ── Motion ──────────────────────────────────────────────────────── */
+  --qa-motion-micro: 120ms;
+  --qa-motion-fast: 180ms;
+  --qa-motion-standard: 280ms;
+  --qa-motion-surface: 420ms;
+  --qa-motion-notification: 520ms;
+  --qa-motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── Z scale ─────────────────────────────────────────────────────── */
+  --qa-z-surface: 10;
+  --qa-z-panel: 20;
+  --qa-z-popover: 30;
+  --qa-z-tooltip: 40;
+
+  /* ── Focus / a11y ────────────────────────────────────────────────── */
+  --qa-focus-ring: 0 0 0 2px rgba(45, 212, 191, 0.85);
+  --qa-focus-ring-offset: 0 0 0 4px rgba(5, 7, 11, 0.9);
+}
+
+[data-qa-theme="light"] {
+  color-scheme: light;
+
+  --qa-graphite-0: #eef1f6;
+  --qa-graphite-1: #f7f9fc;
+  --qa-graphite-2: #ffffff;
+  --qa-graphite-3: #f0f3f8;
+  --qa-graphite-4: #e6ebf2;
+
+  --qa-accent: #14a894;
+  --qa-accent-soft: rgba(20, 168, 148, 0.14);
+
+  --qa-status-healthy: #0e9f6e;
+  --qa-status-moderate: #d99e0b;
+  --qa-status-high: #e07429;
+  --qa-status-critical: #e04f4f;
+  --qa-status-unknown: #6d7d93;
+  --qa-status-offline: #97a5b8;
+  --qa-status-refreshing: #3b82f6;
+
+  --qa-ink-1: rgba(12, 18, 27, 0.96);
+  --qa-ink-2: rgba(12, 18, 27, 0.72);
+  --qa-ink-3: rgba(12, 18, 27, 0.5);
+  --qa-ink-4: rgba(12, 18, 27, 0.32);
+
+  --qa-material-graphite: linear-gradient(180deg, #ffffff, #f2f5f9);
+  --qa-material-glass: rgba(247, 250, 253, 0.82);
+  --qa-material-glass-strong: rgba(243, 246, 250, 0.94);
+  --qa-material-solid: var(--qa-graphite-1);
+  --qa-material-raised: #ffffff;
+  --qa-track: rgba(12, 18, 27, 0.08);
+  --qa-hairline: rgba(12, 18, 27, 0.08);
+  --qa-hairline-strong: rgba(12, 18, 27, 0.16);
+  --qa-edge-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  --qa-shadow-1: 0 2px 8px rgba(30, 41, 59, 0.1);
+  --qa-shadow-2: 0 12px 40px rgba(30, 41, 59, 0.16);
+  --qa-shadow-3: 0 24px 70px rgba(30, 41, 59, 0.22);
+
+  --qa-focus-ring: 0 0 0 2px rgba(20, 168, 148, 0.9);
+  --qa-focus-ring-offset: 0 0 0 4px rgba(249, 251, 253, 0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --qa-motion-force-reduce: 1;
+  }
+}
+
+[data-qa-motion="reduced"],
+[data-qa-motion="off"] {
+  --qa-motion-micro: 0ms;
+  --qa-motion-fast: 0ms;
+  --qa-motion-standard: 0ms;
+  --qa-motion-surface: 0ms;
+  --qa-motion-notification: 0ms;
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Quotalis",
+  "version": "0.11.0",
+  "identifier": "app.quotaarc.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm run dev",
+    "beforeBuildCommand": "pnpm run build",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Quotalis",
+        "width": 496,
+        "height": 800,
+        "minWidth": 320,
+        "minHeight": 240,
+        "resizable": false,
+        "decorations": false,
+        "shadow": false,
+        "visible": false,
+        "skipTaskbar": false,
+        "alwaysOnTop": true,
+        "theme": "Dark",
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
+      "devCsp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' ipc: http://ipc.localhost http://localhost:* http://127.0.0.1:* ws://localhost:* ws://127.0.0.1:*; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "publisher": "Quotalis",
+    "resources": {
+      "../../../assets/brand/icons/quotaarc-icon-128.png": "quotalis-icon-128.png"
+    },
+    "targets": [
+      "nsis",
+      "msi"
+    ],
+    "icon": [
+      "../../../rust/icons/icon.ico",
+      "../../../rust/icons/icon.png"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "installerIcon": "../../../rust/icons/icon.ico",
+        "headerImage": "../../../rust/installer/assets/void-header.bmp",
+        "sidebarImage": "../../../rust/installer/assets/void-sidebar.bmp",
+        "languages": [
+          "English",
+          "SimpChinese",
+          "TradChinese",
+          "Japanese",
+          "Korean",
+          "Spanish",
+          "Russian",
+          "Turkish"
+        ],
+        "displayLanguageSelector": false
+      },
+      "wix": {
+        "language": [
+          "en-US",
+          "zh-CN",
+          "zh-TW",
+          "ja-JP",
+          "ko-KR",
+          "es-ES",
+          "ru-RU",
+          "tr-TR"
+        ]
+      }
+    }
+  },
+  "mainBinaryName": "Quotalis"
+}

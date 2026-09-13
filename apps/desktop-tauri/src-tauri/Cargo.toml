@@ -1,0 +1,41 @@
+[package]
+name = "codexbar-desktop-tauri"
+version = "0.11.0"
+edition = "2024"
+publish = false
+
+# Keep the executable identity aligned with the product in every profile.
+# Without this explicit target, Cargo emits the package name in debug builds
+# while Tauri emits the productName only when bundling. That allowed an
+# older target\\debug\\QuotaArc.exe to be launched after a newer build
+# completed. Renamed from "QuotaArc" to "Quotalis" alongside
+# tauri.conf.json's productName/mainBinaryName (Quotalis rebrand, public
+# brand only -- the bundle identifier stays app.quotaarc.desktop, see
+# docs/validation/QUOTALIS_WINDOWS_IDENTITY_MIGRATION.md).
+[[bin]]
+name = "Quotalis"
+path = "src/main.rs"
+
+[features]
+default = []
+dev-channel = ["quotalis_core/dev-channel"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+quotalis_core = { path = "../../../rust" }
+chrono = { version = "0.4", features = ["serde"] }
+raw-window-handle = "0.6"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["image-png", "tray-icon"] }
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-dialog = "2.7.2"
+tauri-plugin-single-instance = "2"
+tokio = { version = "1", features = ["rt", "time", "sync", "net", "io-util"] }
+tracing = "0.1"
+uuid = { version = "1", features = ["v4"] }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.55"
